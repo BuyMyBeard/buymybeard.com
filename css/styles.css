@@ -1,0 +1,14 @@
+.center {
+    text-align: center;
+}
+
+.pixel-art {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    position:relative; 
+    bottom:2px;
+}
+a {
+    font-weight: bold;
+}
