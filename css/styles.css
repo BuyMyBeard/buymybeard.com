@@ -12,3 +12,10 @@
 a {
     font-weight: bold;
 }
+iframe {
+    width: 800px;
+    max-width: 100%;
+    margin-top: 0px;
+    margin-bottom: 2.5rem;
+    aspect-ratio: 16/9;
+}
