@@ -9,6 +9,10 @@
     position:relative; 
     bottom:2px;
 }
+.flex-end {
+    display: flex;
+    justify-content: end;
+}
 a {
     font-weight: bold;
 }
