@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css"/>
     <script defer src="dark-mode-toggle.js" type="application/javascript"></script>
     <title>BuyMyBeard Portfolio</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+          }
+        }
+      </script>
+      <script type="module" src="animations.js"></script>
 </head>
 <body>
     <p class="flex-end"><button onclick="toggleTheme()">Light/Dark mode</button></p>
@@ -23,10 +32,15 @@
     </nav>
     <h1>Animation</h1>
     <h3>🚧 In construction 🚧</h3>
+    <div id="fox-canvas-container">
+        <div class="move-gui" id="fox-gui-container"></div>
+    </div>
+    </div>
     <hr>
     <footer>
         <a href="https://github.com/BuyMyBeard/">My GitHub Profile</a><br>
         <a href="mailto: buymybeard1@gmail.com">Contact Me</a>
     </footer>
 </body>
+
 </html>
