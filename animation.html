@@ -31,11 +31,73 @@
         </div>
     </nav>
     <h1>Animation</h1>
-    <h3>🚧 In construction 🚧</h3>
+    <p>
+        You can rotate and zoom the models by dragging around the canvas, and control the animations with the GUI on the left.
+    </p>
+    <nav>
+        <div class="center">
+            <a href="#fox">Arctic Fox</a> | 
+            <a href="#hare">White Hare</a> | 
+            <a href="#player">Swordsman Player</a> | 
+            <a href="#melee-enemy">Swordman Enemy</a> | 
+            <a href="#ranged-enemy">Ranged Enemy</a> <br>
+        </div>
+    </nav>
+    <h2 id="fox">Arctic Fox</h2>
+    <p>
+        This model was weight-painted, rigged, and animated for <a href="./game-jams#spectra-hunt">Spectra Hunt</a>.
+        It was my first attempt at animating quadrupeds, and the most challenging aspect was understanding the anatomy of a mammal.
+    </p>
+    <p>
+        To animate it, I had to review in .25x speed footage of foxes walking and running around. It was brought to life with a few 
+        procedural animations in engine.
+    </p>
     <div id="fox-canvas-container">
         <div class="move-gui" id="fox-gui-container"></div>
     </div>
+    <h2 id="hare">White Hare</h2>
+    <p>
+        This model was animated along the fox for <a href="./game-jams.html#spectra-hunt">Spectra Hunt</a>.
+    </p>
+    <p>
+        One major challenge along with the fox was to weight paint the models. The issue with low poly models is that deformations can 
+        get pretty ugly if care is not given. I had to edit some geometry on the hare to make it deformable without making the model collapse
+        on itself.
+    </p>
+    <div id="hare-canvas-container">
+        <div class="move-gui" id="hare-gui-container"></div>
     </div>
+    <h2 id="player">Swordsman Player</h2>
+    <p>
+        <a href="./other-projects.html#neon-souls">Neon Souls</a>'s biggest challenge was definitely the scope of the animation system for the game.
+        90 animation clips were produced in total, split amongst the player and the different type of enemies in the game.
+    </p>
+    <p>
+        The player was the starting point, and I don't look back too fondly and my first walk cycle, though other clips, like the rolling animation, 
+        came out beautifully.
+    </p>
+    <div id="player-canvas-container">
+        <div class="move-gui" id="player-gui-container"></div>
+    </div>
+    <h2 id="melee-enemy">Swordsman Enemy</h2>
+    <p>
+        <a href="./other-projects.html#neon-souls">Neon Souls</a> is a Soulslike, so enemy variety was important. It was not feasible to model and rig
+        other characters, so the model was reused, but given different animations. This enemy has a different pose from the player, and even possesses
+        the bosses's attacks, since they are a reskin of the base enemy with scaled-up model and different swords.
+    </p>
+
+    <div id="enemy-canvas-container">
+        <div class="move-gui" id="enemy-gui-container"></div>
+    </div>
+    <h2 id="ranged-enemy">Ranged Enemy</h2>
+    <p>
+        Finally, a ranged enemy was added into the game to make the player approach fights differently. This one sticks his ground and shoots at the player periodically
+        when he detects him, but will use some different moves as retaliation if the player is too close.
+    </p>
+    <div id="ranger-canvas-container">
+        <div class="move-gui" id="ranger-gui-container"></div>
+    </div>
+    <br>
     <hr>
     <footer>
         <a href="https://github.com/BuyMyBeard/">My GitHub Profile</a><br>
