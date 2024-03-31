@@ -44,7 +44,7 @@ export class AnimationViewer {
 
         // ground
 
-        const plane = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({ color: 0xcbcbcb, depthWrite: false }));
+        const plane = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({ color: 0xAAAAAA, depthWrite: false }));
         plane.rotation.x = - Math.PI / 2;
         plane.receiveShadow = true;
         scene.add(plane);
