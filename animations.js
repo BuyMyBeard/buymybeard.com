@@ -1,7 +1,7 @@
 import { AnimationViewer } from './AnimationViewer.js';
 
 async function initFoxViewer() {
-    const viewer = new AnimationViewer('#fox-canvas-container');
+    const viewer = new AnimationViewer('#fox-canvas-container', 2);
     
     await viewer.loadModel('mesh/fox.glb', 3);
 
@@ -17,7 +17,7 @@ async function initFoxViewer() {
 }
 
 async function initHareViewer() {
-    const viewer = new AnimationViewer('#hare-canvas-container');
+    const viewer = new AnimationViewer('#hare-canvas-container', 1);
     
     await viewer.loadModel('mesh/white-hare.glb', 8);
 

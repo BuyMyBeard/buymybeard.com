@@ -44,15 +44,16 @@ export class AnimationViewer {
 
         // ground
 
-        const mesh = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({ color: 0xcbcbcb, depthWrite: false }));
-        mesh.rotation.x = - Math.PI / 2;
-        mesh.receiveShadow = false;
-        scene.add(mesh);
+        const plane = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshPhongMaterial({ color: 0xcbcbcb, depthWrite: false }));
+        plane.rotation.x = - Math.PI / 2;
+        plane.receiveShadow = true;
+        scene.add(plane);
 
         const dirLight = new THREE.DirectionalLight(0xffffff, lightIntensity);
         dirLight.position.set(3, 10, 10);
-        dirLight.castShadow = false;
-        dirLight.shadow.bias = -0.003;
+        dirLight.shadow.camera.near = 0.1;
+        dirLight.shadow.camera.far = 100;
+        
 
         scene.add(dirLight);
 
@@ -99,8 +100,6 @@ export class AnimationViewer {
                     {
                         object.castShadow = false;
                         object.receiveShadow = false;
-                        object.material.flatShading = true;
-                        object.material.needsUpdate = true;
                     }
 
                 });
@@ -297,8 +296,12 @@ export class AnimationViewer {
 
     }
     resizeCanvas() {
-        const width = Math.min(window.innerWidth, 680);
+        let width = Math.min(document.body.clientWidth - 26, 680);
+        if (window.innerWidth > 1000) {
+            width = 850;
+        }
         const height = width * 3 / 4;
+        this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(width, height);
     }
 

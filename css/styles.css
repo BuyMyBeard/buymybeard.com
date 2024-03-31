@@ -23,7 +23,23 @@ iframe {
     margin-bottom: 2.5rem;
     aspect-ratio: 16/9;
 }
-.move-gui{ 
+
+.move-gui {
     position: absolute;
-    left: 1em;
+    left: 1em
+}
+
+
+@media only screen and (min-width: 1000px) {
+    canvas {
+        margin-left: -100px;
+        margin-right: -100px
+    }
+}
+
+
+@media only screen and (max-width: 800px) and (orientation: portrait) {
+    .move-gui{ 
+        position: relative;
+    }
 }
