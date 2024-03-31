@@ -173,8 +173,9 @@ export class AnimationViewer {
     {
         const gui = new GUI({
             autoPlace: false,
-            width: 300,
+            width: window.innerWidth > 1000 ? 400 : 200,
         });
+        this.gui = gui;
         const api = {
             State: defaultState,
             'Playback Speed': 1,
