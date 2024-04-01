@@ -173,7 +173,7 @@ export class AnimationViewer {
     {
         const gui = new GUI({
             autoPlace: false,
-            width: window.innerWidth > 1000 ? 400 : 200,
+            width: window.innerWidth > 1400 ? 400 : 200,
         });
         this.gui = gui;
         const api = {
@@ -307,6 +307,11 @@ export class AnimationViewer {
     }
 
     animate() {
+        if (!elementIsVisibleInViewport(this.renderer.domElement, true)) {
+            requestAnimationFrame(this.animate.bind(this));
+
+            return;
+        }
         const dt = this.clock.getDelta();
 
         if (this.mixer) this.mixer.update(dt);
@@ -335,4 +340,16 @@ export class AnimationViewer {
 		this.composer.addPass(outputPass);
     }
 }
+
+function elementIsVisibleInViewport(el, partiallyVisible = false) {
+    const { top, left, bottom, right } = el.getBoundingClientRect();
+    const { innerHeight, innerWidth } = window;
+    return partiallyVisible
+    ? ((top > 0 && top < innerHeight) 
+    || (bottom > 0 && bottom < innerHeight))
+    && ((left > 0 && left < innerWidth) 
+    || (right > 0 && right < innerWidth))
+    : top >= 0 && left >= 0 
+    && bottom <= innerHeight && right <= innerWidth;
+};
 
