@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
     <link id="theme" rel="stylesheet" href="css/sakura.css" type="text/css"/>
     <link rel="stylesheet" href="css/styles.css" type="text/css"/>
-    <script defer src="dark-mode-toggle.js" type="application/javascript"></script>
+    <script defer src="script/dark-mode-toggle.js" type="application/javascript"></script>
+    <script src="script/builder.js" type="application/javascript"></script>
     <title>BuyMyBeard Portfolio</title>
     <script type="importmap">
         {
@@ -16,20 +17,10 @@
           }
         }
       </script>
-      <script type="module" src="animations.js"></script>
+      <script type="module" src="script/animations.js"></script>
 </head>
 <body>
-    <p class="flex-end"><button onclick="toggleTheme()">Light/Dark mode</button></p>
-    <nav>
-        <div class="center">
-            <a href="index.html">Home</a> | 
-            <a href="game-jams.html">Game Jams</a> | 
-            <a href="other-projects.html">Other Projects</a> | 
-            <a href="animation.html">Animation</a> | 
-            <a href="technical-art.html">Technical Art</a> | 
-            <a href="programming.html">Programming</a> 
-        </div>
-    </nav>
+    <div id="navigation"></div>
     <h1>Animation</h1>
     <p>
         You can rotate and zoom the models by dragging around the canvas, and control the animations with the GUI on the left.
@@ -98,11 +89,6 @@
         <div class="move-gui" id="ranger-gui-container"></div>
     </div>
     <br>
-    <hr>
-    <footer>
-        <a href="https://github.com/BuyMyBeard/">My GitHub Profile</a><br>
-        <a href="mailto: buymybeard1@gmail.com">Contact Me</a>
-    </footer>
+    <div id="footer"></div>
 </body>
-
 </html>

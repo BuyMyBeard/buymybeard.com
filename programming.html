@@ -6,27 +6,171 @@
     <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
     <link id="theme" rel="stylesheet" href="css/sakura.css" type="text/css"/>
     <link rel="stylesheet" href="css/styles.css" type="text/css"/>
-    <script defer src="dark-mode-toggle.js" type="application/javascript"></script>
+    <script defer src="script/dark-mode-toggle.js" type="application/javascript"></script>
+    <script src="script/builder.js" type="application/javascript"></script>
+    <link id="codeTheme" rel="stylesheet" href="./highlight.js/styles/default.min.css">
     <title>BuyMyBeard Portfolio</title>
+    <script type="module">
+        import hljs from './highlight.js/es/highlight.min.js';
+        import dart from './highlight.js/es/languages/dart.min.js';
+        import csharp from './highlight.js/es/languages/csharp.min.js';
+        import rust from './highlight.js/es/languages/rust.min.js';
+        import typescript from './highlight.js/es/languages/typescript.min.js';
+        import glsl from './highlight.js/es/languages/glsl.min.js';
+        import javascript from './highlight.js/es/languages/javascript.min.js';
+        import powershell from './highlight.js/es/languages/powershell.min.js';
+
+        hljs.registerLanguage('dart', dart);
+        hljs.registerLanguage('rust', rust);
+        hljs.registerLanguage('csharp', csharp);
+        hljs.registerLanguage('typescript', typescript);
+        hljs.registerLanguage('glsl', glsl);
+        hljs.registerLanguage('powershell', powershell);
+        hljs.highlightAll();
+    </script>
 </head>
 <body>
-    <p class="flex-end"><button onclick="toggleTheme()">Light/Dark mode</button></p>
-    <nav>
-        <div class="center">
-            <a href="index.html">Home</a> | 
-            <a href="game-jams.html">Game Jams</a> | 
-            <a href="other-projects.html">Other Projects</a> | 
-            <a href="animation.html">Animation</a> | 
-            <a href="technical-art.html">Technical Art</a> | 
-            <a href="programming.html">Programming</a> 
-        </div>
-    </nav>
+    <div id="navigation"></div>
     <h1>Programming</h1>
-    <h3>🚧 In construction 🚧</h3>
-    <hr>
-    <footer>
-        <a href="https://github.com/BuyMyBeard/">My GitHub Profile</a><br>
-        <a href="mailto: buymybeard1@gmail.com">Contact Me</a>
-    </footer>
+    <h2 id="broadphase">Physics engine broad phase</h2>
+    <p>
+      <b>Language : TypeScript</b><br>
+      <b>Project : <a href="./other-projects.html#pixi-physics">pixi-physics</a></b><br>
+      <a href="https://github.com/BuyMyBeard/pixi-physics/blob/f11e31586cecd1334e0862f839a66dfd7bc0a2e8/src/Physics/BroadPhase.ts#L12">Source</a>
+    </p>
+    <p>
+      For a bit of context, all physics engine implement a broad phase, 
+      to avoid checking collision for every single pair in a simulation.
+    </p>
+    <p>
+      In this case, I implemented the Sweep and prune algorithm for my simulation.
+    </p>
+    <pre><code class="language-typescript">export class SweepAndPrune implements BroadPhase
+{
+  apply(colliders : Array&lt;Body>) : Array<[Body, Body]>
+  {
+    const active : Set&lt;Body> = new Set();
+    const listOfPairs : Array<[Body, Body]> = [];
+
+    colliders.sort((c1, c2) => c1.boundingBox.x - c2.boundingBox.x);
+    for (const c of colliders)
+    {
+      if (active.size === 0)
+      {
+        active.add(c);
+        continue;
+      }
+
+      const minBoundary = c.boundingBox.x;
+      const maxBoundary = c.boundingBox.x + c.boundingBox.width;
+
+      for (const a of active)
+      {
+        const minBoundary2 = a.boundingBox.x;
+        const maxBoundary2 = a.boundingBox.x + a.boundingBox.width;
+
+        if (maxBoundary2 < minBoundary || maxBoundary < minBoundary2)
+        {
+          active.delete(a);
+        }
+        else
+        {
+            listOfPairs.push([c, a]);
+        }
+      }
+      active.add(c);
+    }
+
+    return listOfPairs;
+  }
+}</code></pre>
+    <p>
+      The approach here is to use the axis-aligned bounding box of every shape and compare 
+      the x-axis boundaries. If two bodies overlap, the pair are saved in an array,
+      and then returned at the end of the method body. This is done by sorting the bodies by the 
+      the left boundary of their bounding box, and then sweeping through to check for overlaps.
+    </p>
+    <p>
+      What makes this especially efficient, is that the array is most often almost sorted, since
+      a physics step will almost never move a body much. 
+      <code class="language-javascript">Array.prototype.sort()</code>, the method used here,
+      varies its implementation depending on the browser, but most of the time, this is done with
+      the Timsort algorithm, which is well-suited for arrays that are already partially sorted.
+    </p>
+    <p>
+      That is why the body array is mutated as a side effect within the method body, so that the next
+      step can reuse the sorted array from the previous step to avoid unnecessary work. 
+    </p>
+
+    <h2 id="command-line-parser">Command line parser</h2>
+    <p>
+      <b>Language : Rust</b><br>
+      <b>Project : <a href="https://github.com/BuyMyBeard/rust-cmd-line-utilities">rust-cmd-line-utilities</a></b><br>
+      <a href="https://github.com/BuyMyBeard/rust-cmd-line-utilities/blob/142d422f2770a5c764ad1a7b6c1b1eecc433f45e/src/parser/parser.rs#L5">Source</a>
+    </p>
+    <p>
+      This snippet of code shows the command line argument parser I wrote in Rust.
+    </p>
+<pre><code class="language-rust">pub fn parse_command() -> &'static Command {
+  let cmd_name = String::from(match std::env::args().nth(1) {
+      Some(cmd) => cmd,
+      None => {
+          print_help_menu();
+      }
+  }.trim());
+  
+  return match COMMANDS.iter().find(|command| command.command == cmd_name) {
+      Some(cmd) => cmd,
+      None => terminate_unknown_cmd_error(&cmd_name, &cmd_name),
+  };
+}
+
+pub fn parse_args(command : &Command) -> (Vec::<(&'static Flag, FlagArg)>, Vec::&lt;String>){
+  let mut args_iterator = std::env::args().peekable();
+  let mut options = Vec::<(&'static Flag, FlagArg)>::new();
+  let mut arguments = Vec::&lt;String>::new();
+  
+  args_iterator.nth(1);
+  
+  while let Some(arg) = args_iterator.next() {
+      if is_flag(&arg) {
+          let next_arg = args_iterator.peek().cloned();
+          let option = parse_flag(String::from(arg.trim()), next_arg, command);
+          if option.1 != FlagArg::None {
+              args_iterator.next();
+          }
+          options.push(option);
+          continue;
+      }
+      arguments.push(String::from(arg.trim()));
+  }
+  return (options, arguments);
+}
+
+fn parse_flag(flag_arg: String, next_arg : Option&lt;String>, command : &Command) -> (&'static Flag, FlagArg) { 
+  let flag = match command.options.iter().find(|x| x.flag == flag_arg) {
+      Some(flag) => flag,
+      None => terminate_invalid_flag_error(&flag_arg, command.name),
+  };
+  match flag.arg_type {
+    [...]
+  }
+}</code></pre>
+    <p>
+      What I think makes this notable is a clever use of a peekable Vec iterator to send to
+      <code class="language-rust">parse_flag()</code> the next argument so it can process flags
+      with optional arguments. 
+    </p>
+    <p>
+      For example, the command <code class="language-powershell">head -n 5 ./README.md</code>
+      can be parsed while acknowledging that <code class="language-powershell">5</code>
+      is an argument for the flag <code class="language-powershell">-n</code>.
+    </p>
+    <p>
+      <code class="language-rust">parse_flag()</code> will then return a tuple containing a Flag, 
+      and the enum <code class="language-rust">FlagArg</code>. If the flag has an argument,
+      the iterator will skip that one before processing the next argument.
+    </p>
+    <div id="footer"></div>
 </body>
 </html>

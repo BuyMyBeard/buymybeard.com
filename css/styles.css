@@ -51,3 +51,7 @@ iframe {
         margin: 10px;
     }
 } 
+
+#navigation {
+    height: 80px
+}
