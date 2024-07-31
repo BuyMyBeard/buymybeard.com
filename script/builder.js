@@ -2,6 +2,18 @@
 const footer = fetch('partial/footer.html', {credentials: 'same-origin'}).then(response => response.text());
 const navigation = fetch('partial/navigation.html', {credentials: 'same-origin'}).then(response => response.text());
 
+function loadTranslations(lang) {
+  $.i18n().locale = lang;
+  $.i18n().load({
+      'en': './i18n/en.json',
+      'fr': './i18n/fr.json'
+  }).done(async () => {
+    const body = $('body');
+    body.i18n();
+    body.show();
+  });
+}
+
 $(document).ready(() => {
   footer.then(data => {
     $('#footer').html(data);
@@ -9,30 +21,17 @@ $(document).ready(() => {
 
   navigation.then(data => {
     $('#navigation').html(data);
-  });
 
-  function loadTranslations(lang) {
-    $.i18n().locale = lang;
-    $.i18n().load({
-        'en': './i18n/en.json',
-        'fr': './i18n/fr.json'
-    }).done(async () => {
-      const body = $('body');
-      body.i18n();
-      await new Promise(resolve => setTimeout(resolve), 500);
-      body.show();
+    const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage;
+    const lang = userLang.startsWith('fr') ? 'fr' : 'en';
+    loadTranslations(lang);
+    $('#language-select').val(lang);
+
+    $('#language-select').change((event) => {
+      const selectedLang = $(event.target).val();
+      loadTranslations(selectedLang);
+      localStorage.setItem('lang', selectedLang);
     });
-  }
-
-  const userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage;
-  const lang = userLang.startsWith('fr') ? 'fr' : 'en';
-  loadTranslations(lang);
-  $('#language-select').val(lang);
-
-  $('#language-select').change((event) => {
-    const selectedLang = $(event.target).val();
-    loadTranslations(selectedLang);
-    localStorage.setItem('lang', selectedLang);
   });
 });
 
