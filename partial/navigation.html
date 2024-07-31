@@ -1,11 +1,18 @@
-<p class="flex-end"><button onclick="toggleTheme()">Light/Dark mode</button></p>
+<p class="flex-end">
+    <select id="language-select">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+    </select>
+    
+    <button onclick="toggleTheme()">Light/Dark mode</button>
+</p>
 <nav>
     <div class="center">
-        <a href="index.html">Home</a> | 
-        <a href="game-jams.html">Game Jams</a> | 
-        <a href="other-projects.html">Other Projects</a> | 
-        <a href="animation.html">Animation</a> | 
-        <a href="technical-art.html">Technical Art</a> | 
-        <a href="programming.html">Programming</a> 
+        <a data-i18n="home" href="index.html">Home</a> | 
+        <a data-i18n="game-jams" href="game-jams.html">Game Jams</a> | 
+        <a data-i18n="other-projects" href="other-projects.html">Other Projects</a> | 
+        <a data-i18n="animation" href="animation.html">Animation</a> | 
+        <a data-i18n="technical-art" href="technical-art.html">Technical Art</a> | 
+        <a data-i18n="programming" href="programming.html">Programming</a> 
     </div>
 </nav>

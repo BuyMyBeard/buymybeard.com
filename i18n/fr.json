@@ -1,0 +1,27 @@
+{
+  "@metadata": {
+    "author": "BuyMyBeard",
+    "last-updated": "2024-07-30",
+    "locale": "fr"
+  },
+  "home": "Accueil",
+  "game-jams": "Game Jams",
+  "other-projects": "Projets divers",
+  "animation": "Animation",
+  "technical-art": "Art technique",
+  "programming": "Programmation",
+  "broadphase-title": "Phase large de moteur physique",
+  "language": "Langage",
+  "project": "Projet",
+  "source-code": "Code source",
+  "broadphase-p1": "Pour vous mettre en contexte, tous les moteurs physiques implémentent une phase large, ce qui permet d'éviter de vérifier s'il y a une collision entre chaque paire unique dans la simulation.",
+  "broadphase-p2": "Dans mon implémentation, j'ai choisi principalement l'<a href=\"https://en.wikipedia.org/wiki/Sweep_and_prune\">algorithme Sweep and prune</a> pour ma simulation.",
+  "broadphase-p3": "L'approche de cette algorithme est d'utiliser la boîte englobante alignée sur les axes (AABB) de chaque forme et de comparer les limites sur l'axe x. Si les deux corps se chevauchent, ils sont ajoutés dans un tableau qui est retourné à la fin du corps. Les formes sont premièrement triés par la limite gauche de leur boîte limitante, puis le tableau est balayé pour trouver un chevauchement.",
+  "broadphase-p4": "Un aspect qui rend cette approche très efficace est que puisque un pas dans la simulation bouge la plupart des corps très peu, l'ordre est peu changé, et donc le tableau toujours presque trié. La méthode <code>Array.prototype.sort()</code>, bien qu'elle varie son implémentation d'un navigateur à l'autre, implémente en général l'<a href=\"https://fr.wikipedia.org/wiki/Timsort\">algorithme Timsort</a>, qui est idéal pour les tableaux sont déjà partiellement triées.",
+  "broadphase-p5": "That is why the body array is mutated as a side effect within the method body, so that the next step can reuse the sorted array from the previous step to avoid unnecessary work.",
+  "parser-title": "Analyse syntaxique de ligne de commande",
+  "parser-p1": "Cet extrait de code est une démonstration de l'analyseur syntaxique que j'ai écris en Rust pour la ligne de commande",
+  "parser-p2": "What I think makes this notable is a clever use of a peekable Vec iterator to send to <code>parse_flag()</code the next argument so it can process flags with optional arguments.",
+  "parser-p3": "For example, the command <code>head -n 5 ./README.md</code> can be parsed while acknowledging that <code>5</code> is an argument for the flag <code>-n</code>.",
+  "parser-p4": "<code>parse_flag()</code> will then return a tuple containing a Flag, and the enum <code>FlagArg</code>. If the flag has an argument, the iterator will skip that one before processing the next argument."
+}

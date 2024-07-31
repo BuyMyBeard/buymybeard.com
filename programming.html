@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
     <link id="theme" rel="stylesheet" href="css/sakura.css" type="text/css"/>
     <link rel="stylesheet" href="css/styles.css" type="text/css"/>
-    <script defer src="script/dark-mode-toggle.js" type="application/javascript"></script>
+    <link rel="preload" as="fetch" href="./partial/navigation.html" crossorigin="anonymous">
+    <link rel="preload" as="fetch" href="./partial/footer.html" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script/builder.js" type="application/javascript"></script>
     <link id="codeTheme" rel="stylesheet" href="./highlight.js/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.9/jquery.i18n.min.js" integrity="sha512-EkS8Kq86l7dHt/dOBniHgtYvAScDqFw/lIPX5VCwaVKsufs0pY44I2cguqZ45QaFOGGwVd3T1nXvVJYIEjRsjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.9/jquery.i18n.messagestore.min.js" integrity="sha512-Ejnbo8F6SIU18Tj9hZyJzVbhWtbC40Fyvuyfs6InZloy043xEvICul37BxuUGZG1ia8RQky7uBOwBdLsGKDu1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>BuyMyBeard Portfolio</title>
     <script type="module">
         import hljs from './highlight.js/es/highlight.min.js';
@@ -29,22 +33,18 @@
         hljs.highlightAll();
     </script>
 </head>
-<body>
+<div class="loader"></div>
+<body style="display:none">
     <div id="navigation"></div>
-    <h1>Programming</h1>
-    <h2 id="broadphase">Physics engine broad phase</h2>
+    <h1 data-i18n="programming"></h1>
+    <h2 data-i18n="broadphase-title" id="broadphase"></h2>
     <p>
-      <b>Language : TypeScript</b><br>
-      <b>Project : <a href="./other-projects.html#pixi-physics">pixi-physics</a></b><br>
-      <a href="https://github.com/BuyMyBeard/pixi-physics/blob/f11e31586cecd1334e0862f839a66dfd7bc0a2e8/src/Physics/BroadPhase.ts#L12">Source</a>
+      <b><span data-i18n="language"></span> : TypeScript</b><br>
+      <b><span data-i18n="project"></span> : <a href="./other-projects.html#pixi-physics">pixi-physics</a></b><br>
+      <a data-i18n="source-code" href="https://github.com/BuyMyBeard/pixi-physics/blob/f11e31586cecd1334e0862f839a66dfd7bc0a2e8/src/Physics/BroadPhase.ts#L12"></a>
     </p>
-    <p>
-      For a bit of context, all physics engine implement a broad phase, 
-      to avoid checking collision for every single pair in a simulation.
-    </p>
-    <p>
-      In this case, I implemented the Sweep and prune algorithm for my simulation.
-    </p>
+    <p data-i18n="broadphase-p1"></p>
+    <p data-i18n="[html]broadphase-p2"></p>
     <pre><code class="language-typescript">export class SweepAndPrune implements BroadPhase
 {
   apply(colliders : Array&lt;Body>) : Array<[Body, Body]>
@@ -84,33 +84,17 @@
     return listOfPairs;
   }
 }</code></pre>
-    <p>
-      The approach here is to use the axis-aligned bounding box of every shape and compare 
-      the x-axis boundaries. If two bodies overlap, the pair are saved in an array,
-      and then returned at the end of the method body. This is done by sorting the bodies by the 
-      the left boundary of their bounding box, and then sweeping through to check for overlaps.
-    </p>
-    <p>
-      What makes this especially efficient, is that the array is most often almost sorted, since
-      a physics step will almost never move a body much. 
-      <code class="language-javascript">Array.prototype.sort()</code>, the method used here,
-      varies its implementation depending on the browser, but most of the time, this is done with
-      the Timsort algorithm, which is well-suited for arrays that are already partially sorted.
-    </p>
-    <p>
-      That is why the body array is mutated as a side effect within the method body, so that the next
-      step can reuse the sorted array from the previous step to avoid unnecessary work. 
-    </p>
+    <p data-i18n="broadphase-p3"></p>
+    <p data-i18n="[html]broadphase-p4"></p>
+    <p data-i18n="broadphase-p5"></p>
 
-    <h2 id="command-line-parser">Command line parser</h2>
+    <h2 data-i18n="parser-title" id="command-line-parser"></h2>
     <p>
-      <b>Language : Rust</b><br>
-      <b>Project : <a href="https://github.com/BuyMyBeard/rust-cmd-line-utilities">rust-cmd-line-utilities</a></b><br>
-      <a href="https://github.com/BuyMyBeard/rust-cmd-line-utilities/blob/142d422f2770a5c764ad1a7b6c1b1eecc433f45e/src/parser/parser.rs#L5">Source</a>
+      <b><span data-i18n="language"></span> : Rust</b><br>
+      <b><span data-i18n="project"></span> : <a href="https://github.com/BuyMyBeard/rust-cmd-line-utilities">rust-cmd-line-utilities</a></b><br>
+      <a data-i18n="source-code" href="https://github.com/BuyMyBeard/rust-cmd-line-utilities/blob/142d422f2770a5c764ad1a7b6c1b1eecc433f45e/src/parser/parser.rs#L5"></a>
     </p>
-    <p>
-      This snippet of code shows the command line argument parser I wrote in Rust.
-    </p>
+    <p data-i18n="[html]parser-p1"></p>
 <pre><code class="language-rust">pub fn parse_command() -> &'static Command {
   let cmd_name = String::from(match std::env::args().nth(1) {
       Some(cmd) => cmd,
@@ -156,21 +140,9 @@ fn parse_flag(flag_arg: String, next_arg : Option&lt;String>, command : &Command
     [...]
   }
 }</code></pre>
-    <p>
-      What I think makes this notable is a clever use of a peekable Vec iterator to send to
-      <code class="language-rust">parse_flag()</code> the next argument so it can process flags
-      with optional arguments. 
-    </p>
-    <p>
-      For example, the command <code class="language-powershell">head -n 5 ./README.md</code>
-      can be parsed while acknowledging that <code class="language-powershell">5</code>
-      is an argument for the flag <code class="language-powershell">-n</code>.
-    </p>
-    <p>
-      <code class="language-rust">parse_flag()</code> will then return a tuple containing a Flag, 
-      and the enum <code class="language-rust">FlagArg</code>. If the flag has an argument,
-      the iterator will skip that one before processing the next argument.
-    </p>
+    <p data-i18n="[html]parser-p2"></p>
+    <p data-i18n="[html]parser-p3"></p>
+    <p data-i18n="[html]parser-p4"></p>
     <div id="footer"></div>
 </body>
 </html>
