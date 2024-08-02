@@ -10,7 +10,13 @@
   "animation": "Animation",
   "technical-art": "Technical Art",
   "programming": "Programming",
-  
+  "my-github-profile": "My GitHub profile",
+  "contact-me": "Contact me",
+  "home-title": "BuyMyBeard's Portfolio",
+  "home-p1": "Hey, I'm <b>Alexandre \"BuyMyBeard\" Lacombe</b>, and I make games!",
+  "home-p2": "I am currently working fulltime at DevXpress as a mobile developper. I am formely taught through techniques de l'informatique at Collège Lionel-Groulx.",
+  "home-p3": "In addition to my studies, I pursue programming as a hobby, participating in various game jams and undertaking side projects. Notably, I achieved <b>1<sup>st</sup> place</b> in Gamedev.js 2023's open-source category and was <a href=\"https://github.blog/2023-06-21-gamedev-js-2023/\">featured on The GitHub Blog</a>!",
+  "home-p4": "I am currently seeking opportunities in the game industry within the Montréal region,  mainly for gameplay programming . Additionally, I am self-teaching various tech-art disciplines with the aim of becoming a Tech Artist in the future!",
   "broadphase-title": "Physics Engine Broad Phase",
   "language": "Language",
   "project": "Project",
@@ -24,5 +30,5 @@
   "parser-p1": "This snippet of code shows the command line argument parser I wrote in Rust.",
   "parser-p2": "What I think makes this notable is a clever use of a peekable Vec iterator to send to <code>parse_flag()</code the next argument so it can process flags with optional arguments.",
   "parser-p3": "For example, the command <code>head -n 5 ./README.md</code> can be parsed while acknowledging that <code>5</code> is an argument for the flag <code>-n</code>.",
-  "parser-p4": "<code>parse_flag()</code> will then return a tuple containing a Flag, and the enum <code>FlagArg</code>. If the flag has an argument, the iterator will skip that one before processing the next argument."
+  "parser-p4": "<code>parse_flag()</code> will then return a tuple containing a <b>Flag</b>, and the enum <code>FlagArg</code>. If the flag has an argument, the iterator will skip that one before processing the next argument."
 }

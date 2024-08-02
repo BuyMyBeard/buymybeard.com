@@ -10,10 +10,18 @@
   "animation": "Animation",
   "technical-art": "Art technique",
   "programming": "Programmation",
+  "my-github-profile": "Mon profil GitHub",
+  "contact-me": "Me contacter",
   "broadphase-title": "Phase large de moteur physique",
   "language": "Langage",
   "project": "Projet",
   "source-code": "Code source",
+  "home-title": "Portfolio de BuyMyBeard",
+  "home-p1": "Hey, je suis <b>Alexandre \"BuyMyBeard\" Lacombe</b>, et je développe des jeux!",
+  "home-p2": "Je suis présentement employé à DevXpress en tant que développeur d'application mobile. J'ai atteint un diplôme de techniques de l'informatique à Lionel-groulx.",
+  "home-p3": "En plus de mon travail, je programme récréationnellement en participant à des Game Jams et en entreprenant des projets personnels. J'ai remporté la <b>1<sup>ère</sup> place</b> pour la catégorie open-source de Gamedev.js 2023 et était <a href=\"https://github.blog/2023-06-21-gamedev-js-2023/\">en vedette sur Le GitHub Blog</a>!",
+  "home-p4": "Je suis à la recherche d'opportunités dans l'industrie du jeu vidéo, principalement en programmation de gameplay. Additionellement, je m'autoforme sur différentes disciplines de tech-art dans le but de devenir un artiste technique dans le futur!",
+
   "broadphase-p1": "Pour vous mettre en contexte, tous les moteurs physiques implémentent une phase large, ce qui permet d'éviter de vérifier s'il y a une collision entre chaque paire unique dans la simulation.",
   "broadphase-p2": "Dans mon implémentation, j'ai choisi principalement l'<a href=\"https://en.wikipedia.org/wiki/Sweep_and_prune\">algorithme Sweep and prune</a> pour ma simulation.",
   "broadphase-p3": "L'approche de cette algorithme est d'utiliser la boîte englobante alignée sur les axes (AABB) de chaque forme et de comparer les limites sur l'axe x. Si les deux corps se chevauchent, ils sont ajoutés dans un tableau qui est retourné à la fin du corps. Les formes sont premièrement triés par la limite gauche de leur boîte limitante, puis le tableau est balayé pour trouver un chevauchement.",
@@ -21,7 +29,7 @@
   "broadphase-p5": "That is why the body array is mutated as a side effect within the method body, so that the next step can reuse the sorted array from the previous step to avoid unnecessary work.",
   "parser-title": "Analyse syntaxique de ligne de commande",
   "parser-p1": "Cet extrait de code est une démonstration de l'analyseur syntaxique que j'ai écris en Rust pour la ligne de commande",
-  "parser-p2": "What I think makes this notable is a clever use of a peekable Vec iterator to send to <code>parse_flag()</code the next argument so it can process flags with optional arguments.",
-  "parser-p3": "For example, the command <code>head -n 5 ./README.md</code> can be parsed while acknowledging that <code>5</code> is an argument for the flag <code>-n</code>.",
-  "parser-p4": "<code>parse_flag()</code> will then return a tuple containing a Flag, and the enum <code>FlagArg</code>. If the flag has an argument, the iterator will skip that one before processing the next argument."
+  "parser-p2": "Ce que je crois rend cet exemple remarquable est l'utilisation judicieuse d'un itérateur de vecteur peekable Vec iterator pour envoyer en paramètre à <code>parse_flag()</code le prochain argument sans avancer l'itérateur inutilemnent, et pour permettre de traiter les arguments optionels sur les flags.",
+  "parser-p3": "Par exemple, la commande <code>head -n 5 ./README.md</code>, lorsque traduite, sais que <code>5</code> est un argument appartenant au flag <code>-n</code>.",
+  "parser-p4": "<code>parse_flag()</code> retourne un tuple contenant un <b>Flag</b> et l'énumération <code>FlagArg</code>. Si le flag possède un argument, l'itérateur sautera par dessus avant d'analyser l'argument suivant."
 }

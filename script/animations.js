@@ -1,4 +1,4 @@
-import { AnimationViewer } from './AnimationViewer.js';
+import { AnimationViewer } from './animation-viewer.js';
 
 async function initFoxViewer() {
     const viewer = new AnimationViewer('#fox-canvas-container', 2);
