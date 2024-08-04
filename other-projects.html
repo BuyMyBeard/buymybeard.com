@@ -13,9 +13,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.9/jquery.i18n.messagestore.min.js" integrity="sha512-Ejnbo8F6SIU18Tj9hZyJzVbhWtbC40Fyvuyfs6InZloy043xEvICul37BxuUGZG1ia8RQky7uBOwBdLsGKDu1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>BuyMyBeard Portfolio</title>
 </head>
-<body>
+<body style="display:none">
     <div id="navigation"></div>
-    <h1>Other Projects</h1>
+    <h1 data-i18n="other-projects"></h1>
     <nav>
         <div class="center">
             <a href="#neon-souls">Neon Souls</a> | 
@@ -27,46 +27,25 @@
     <h2 id="neon-souls">Neon Souls</h2>
     <img width="800px" src="img/neon-souls-thumbnail.png">
     <p>
-        <a href="https://neon-souls.ca/">Official website (French only)</a> | 
-        <a href="https://github.com/BuyMyBeard/Neon-Souls/releases/tag/v1.0.2">Download</a> | 
-        <a href="https://github.com/BuyMyBeard/Neon-Souls/">Source Code</a>
+        <a href="https://neon-souls.ca/" data-i18n="official-website-french-only"></a> | 
+        <a href="https://github.com/BuyMyBeard/Neon-Souls/releases/tag/v1.0.2" data-i18n="download"></a> | 
+        <a href="https://github.com/BuyMyBeard/Neon-Souls/" data-i18n="source-code"></a>
     </p>
-    <p>
-        Integration project of Collège Lionel-Groulx, made as a team of 4 over 11 weeks.
-        The game features a full-on Souls style fighting system, with a variety of enemy behaviour, 
-        stamina and health management, upgrades and map to explore, with a double boss encounter
-        at the end to test the player's mettle.
-    </p>
+    <p data-i18n="neon-souls-p1"></p>
     <iframe src="https://www.youtube.com/embed/rsIrduWFux0?si=x0EwRbAOzgyNgBSn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
     <hr>
 
     <h2 id="pixi-physics">pixi-physics</h2>
-    <p> 
-        <a href="https://buymybeard.github.io/pixi-physics/">Playground</a> 
-        with <a href="https://github.com/BuyMyBeard/pixi-physics/blob/main/TestingInputs.md">input mapping</a> | 
-        <a href="https://github.com/BuyMyBeard/pixi-physics">Source Code</a>
-    </p>
+    <p><span data-i18n="[html]playground-with-input-mapping"></span> | <a href="https://github.com/BuyMyBeard/pixi-physics" data-i18n="source-code"></a></p>
+    <p data-i18n="[html]pixi-physics-p1"></p>
+    <p data-i18n="pixi-physics-p2"></p>
+    <p data-i18n="pixi-physics-p3"></p>
     <p>
-        pixi-physics is a 2d physics engine built as a plugin for the 
-        <a href="https://pixijs.com/">Pixijs 2d rendering engine</a>.
-    </p>
-    <p>
-        It supports collision detection and collision response between circle and polygon rigid bodies.
-        Bodies have customizable friction and restitution, can be static, and events can be intercepted
-        for collision events. 
-    </p>
-    <p>
-        The x movement, y movement, and rotation can be locked, and forces
-        and impulses can be applied to the bodies. There is also a layer system, allowing to not make
-        specific bodies interact with each other.
-    </p>
-    <p>
-        The engine supports multiple broad phases:
+        <span data-i18n="pixi-physics-p4"></span>
         <ul>
             <li><a href="https://en.wikipedia.org/wiki/Sweep_and_prune">Sweep and prune</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Space_partitioning">uniform grid partitioning</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/K-d_tree">k-d trees</a></li>
+            <li data-i18n="[html]uniform-grid-partitioning"></li>
+            <li data-i18n="[html]kd-tree"></li>
         </ul>
     </p>
     <video controls src="video/collisions.mp4"></video>
@@ -76,15 +55,10 @@
 
     <h2 id="star-pattern">Star Pattern</h2>
     <p>
-        <a href="https://buymybeard.github.io/StarPattern/">Test in browser</a> | 
-        <a href="https://github.com/BuyMyBeard/StarPattern">Source Code</a>
+        <a href="https://buymybeard.github.io/StarPattern/" data-i18n="test-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/StarPattern" data-i18n="source-code"></a>
     </p>
-    <p>
-        A recreation of the animated star background seen in Persona 5.
-        The effect was done using GLSL fragment shaders, and <a href=https://pixijs.com>Pixijs</a> 
-        to render different versions of the shader with varying offset and color placed all 
-        over the screen.
-    </p>
+    <p data-i18n="[html]star-pattern-p1"></p>
     <video controls src="video/stars-black-white-grey.mp4"></video>
     <video controls src="video/stars-black-red.mp4"></video>
     <div id="footer"></div>

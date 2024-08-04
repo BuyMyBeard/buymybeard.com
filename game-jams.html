@@ -12,15 +12,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.9/jquery.i18n.min.js" integrity="sha512-EkS8Kq86l7dHt/dOBniHgtYvAScDqFw/lIPX5VCwaVKsufs0pY44I2cguqZ45QaFOGGwVd3T1nXvVJYIEjRsjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.9/jquery.i18n.messagestore.min.js" integrity="sha512-Ejnbo8F6SIU18Tj9hZyJzVbhWtbC40Fyvuyfs6InZloy043xEvICul37BxuUGZG1ia8RQky7uBOwBdLsGKDu1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body>
+<body style="display:none">
     <div id="navigation"></div>
     <h1>Game Jams</h1>
     <p>
-        Please check out my showcase video for all the jam games I made in 2022-2023!
+        <span data-i18n="game-jams-p1"></span>
         <iframe src="https://www.youtube.com/embed/SDE5PK0PZ0Q?si=DJJh6w3GAv4rFk5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </p>
     <nav>
-        <h4>Games (In reverse chronological order)</h4>
+        <h4 data-i18n="game-jams-nav-header"></h4>
         <div class="center">
             <a href="#spectra-hunt">Spectra Hunt</a> | 
             <a href="#homework-havoc">Homework Havoc</a> | 
@@ -36,62 +36,44 @@
     <h2 id="spectra-hunt">Spectra Hunt</h2>
     <img width="800px" src="img/spectra-hunt-thumbnail.png">
     <p>
-        <b>Made in 2 weeks for <a href="https://itch.io/jam/acerola-jam-0">Acerola Jam 0</a></b><br>
-        <b>Theme : Aberration</b><br>
-        <b>Team size : 1</b>
+        <b><span data-i18n="made-in"></span> 2 <span data-i18n="weeks-for"></span> <a href="https://itch.io/jam/acerola-jam-0">Acerola Jam 0</a></b><br>
+        <b><span data-i18n="theme"></span> : Aberration</span></b><br>
+        <b><span data-i18n="team-size"></span> : 1</b>
     </p>
     <p>
-        <a href="https://buymybeard.itch.io/spectra-hunt">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/Spectra-Hunt/releases/tag/v1.0.0">Download</a> | 
-        <a href="https://github.com/BuyMyBeard/Spectra-Hunt/">Source Code</a>
+        <a href="https://buymybeard.itch.io/spectra-hunt" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/Spectra-Hunt/releases/tag/v1.0.0" data-i18n="download"></a> | 
+        <a href="https://github.com/BuyMyBeard/Spectra-Hunt/" data-i18n="source-code"></a>
     </p>
-
-    <p>
-        This Jam made me learn to rig and animate quadrupeds in <b>Blender</b>, and create cutscenes 
-        with the Unity Timeline.
-        It was an occasion to experiment with shaders and visual effects to create a beautiful low-poly flat-shaded environment.
-    </p>
-    <p>
-        I am especially proud of the dynamic clouds casting moving shadows on the map, and the custom water shader with planar reflections.
-    </p>
-
+    <p data-i18n="[html]spectra-hunt-p1"></p>
+    <p data-i18n="spectra-hunt-p2"></p>
     <hr>
-
     <h2 id="homework-havoc">Homework Havoc</h2>
     <img width="800px" src="img/homework-havoc-thumbnail.png">
     <p>
-        <b>Made in 72 hours for <a href="https://ludumdare.com">Ludum dare 52</a></b><br>
-        <b>Theme : Limited space</b><br>
-        <b>Team size : 1</b>
+        <b><span data-i18n="made-in"></span> 72 <span data-i18n="hours-for"></span> <a href="https://ludumdare.com">Ludum dare 52</a></b><br>
+        <b><span data-i18n="theme"></span> : Limited space</b><br>
+        <b><span data-i18n="team-size"></span> : 1</b>
     </p>
     <p>
-        <a href="https://buymybeard.github.io/Homework-Havoc/">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/Homework-Havoc/">Source Code</a>
+        <a href="https://buymybeard.github.io/Homework-Havoc/" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/Homework-Havoc/" data-i18n="source-code"></a>
     </p>
-    <p>
-        This jam was made with Phaser 3 and Typescript, and was my first time producing my own sound effects. It also had been a while
-        since I produced my own 2d texture assets, dating from <a href="#dazel-the-gazelle">Dazel the Gazelle</a>.
-    </p>
-    <p>
-        The biggest challenge of this jam was creating the stack system for the paper sheets. It was slightly inspired by systems like
-        the one in <a href="https://papersplea.se/">Papers, Please</a>, but instead of shifting the item you were dragging to the
-        top of the rendering order, you have to slip it through to place it on the top.
-    </p>
+    <p data-i18n="[html]homework-havoc-p1"></p>
+    <p data-i18n="[html]homework-havoc-p2"></p>
     <img width="400px" src="/img/stack-example.gif">
-
     <hr>
-
     <h2 id="alligator-ball-pit">Alligator Ball Pit</h2>
     <img width="800px" src="img/alligator-ball-pit-thumbnail.png">
     <p>
-        <b>Made in 48 hours for <a href="https://itch.io/jam/gmtk-2023">GMTK Game Jam 2023</a></b><br>
-        <b>Theme : Roles reversed</b><br>
-        <b>Team size : 4</b>
+        <b><span data-i18n="made-in"></span> 48 <span data-i18n="hours-for"></span> <a href="https://itch.io/jam/gmtk-2023">GMTK Game Jam 2023</a></b><br>
+        <b><span data-i18n="theme"></span> : Roles reversed</b><br>
+        <b><span data-i18n="team-size"></span> : 4</b>
     </p>
     <p>
-        <a href="https://buymybeard.itch.io/alligator-ball-pit">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/AlligatorBallPit/releases/tag/v1.0.1">Download</a> | 
-        <a href="https://github.com/BuyMyBeard/AlligatorBallPit/">Source Code</a>
+        <a href="https://buymybeard.itch.io/alligator-ball-pit" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/AlligatorBallPit/releases/tag/v1.0.1" data-i18n="download"></a> | 
+        <a href="https://github.com/BuyMyBeard/AlligatorBallPit/" data-i18n="source-code"></a>
     </p>
 
     <hr>
@@ -99,14 +81,14 @@
     <h2 id="scare-rosalyn">Scare Rosalyn!</h2>
     <img width="800px" src="img/scare-rosalyn-thumbnail.png">
     <p>
-        <b>Made in 2 weeks for <a href="https://itch.io/jam/learn-you-a-game-jam">Learn you a Game Jam: Pixels Edition</a></b><br>
-        <b>Theme : You are the Monster</b><br>
-        <b>Team size : 1</b>
+        <b><span data-i18n="made-in"></span> 2 <span data-i18n="weeks-for"></span>  <a href="https://itch.io/jam/learn-you-a-game-jam">Learn you a Game Jam: Pixels Edition</a></b><br>
+        <b><span data-i18n="theme"></span> : You are the Monster</b><br>
+        <b><span data-i18n="team-size"></span> : 1</b>
     </p>
     <p>
-        <a href="https://buymybeard.github.io/Scare-Rosalyn/">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/Scare-Rosalyn/releases/tag/v1.1.1">Download</a> | 
-        <a href="https://github.com/BuyMyBeard/Scare-Rosalyn/">Source Code</a>
+        <a href="https://buymybeard.github.io/Scare-Rosalyn/" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/Scare-Rosalyn/releases/tag/v1.1.1" data-i18n="download"></a> | 
+        <a href="https://github.com/BuyMyBeard/Scare-Rosalyn/" data-i18n="source-code"></a>
     </p>
 
     <hr>
@@ -114,13 +96,13 @@
     <h2 id="ratatime">Ratatime</h2>
     <img width="800px" src="img/ratatime-thumbnail.png">
     <p>
-        <b>Made in 13 days for <a href="https://itch.io/jam/gamedevjs-2023">Gamedev.js Jam 2023</a></b><br>
-        <b>Theme : Time</b><br>
-        <b>Team size : 5</b>
+        <b><span data-i18n="made-in"></span> 13 <span data-i18n="days-for"></span>  <a href="https://itch.io/jam/gamedevjs-2023">Gamedev.js Jam 2023</a></b><br>
+        <b><span data-i18n="theme"></span> : Time</b><br>
+        <b><span data-i18n="team-size"></span> : 5</b>
     </p>
     <p>
-        <a href="https://buymybeard.itch.io/ratatime">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/Ratatime">Source Code</a>
+        <a href="https://buymybeard.itch.io/ratatime" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/Ratatime" data-i18n="source-code"></a>
     </p>
 
     <hr>
@@ -128,13 +110,13 @@
     <h2 id="dazel-the-gazelle">Dazel The Gazelle</h2>
     <img width="800px" src="img/dazel-thumbnail.png">
     <p>
-        <b>Made in 7 days for <a href="https://itch.io/jam/indie-game-dev-beginners-002">Indie Game Dev Beginners 002</a></b><br>
-        <b>Theme : Nostalgia</b><br>
-        <b>Team size : 2</b>
+        <b><span data-i18n="made-in"></span> 7 <span data-i18n="days-for"></span>  <a href="https://itch.io/jam/indie-game-dev-beginners-002">Indie Game Dev Beginners 002</a></b><br>
+        <b><span data-i18n="theme"></span> : Nostalgia</b><br>
+        <b><span data-i18n="team-size"></span> : 2</b>
     </p>
     <p>
-        <a href="https://buymybeard.itch.io/dazel-the-gazelle">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/dazel">Source Code</a>
+        <a href="https://buymybeard.itch.io/dazel-the-gazelle" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/dazel" data-i18n="source-code"></a>
     </p>
 
     <hr>
@@ -142,13 +124,13 @@
     <h2 id="dice-arithmetics">Dice Arithmetics</h2>
     <img width="800px" class="pixel-art" src="img/dice-arithmetics-thumbnail.png">
     <p>
-        <b>Made in 48 hours for <a href="https://itch.io/jam/gmtk-jam-2022">GMTK Game Jam 2022</a></b><br>
-        <b>Theme : Roll of the Dice</b><br>
-        <b>Team size : 1</b>
+        <b><span data-i18n="made-in"></span> 48 <span data-i18n="hours-for"></span>  <a href="https://itch.io/jam/gmtk-jam-2022">GMTK Game Jam 2022</a></b><br>
+        <b><span data-i18n="theme"></span> : Roll of the Dice</b><br>
+        <b><span data-i18n="team-size"></span> : 1</b>
     </p>
     <p>
-        <a href="https://buymybeard.itch.io/dice-arithmetics">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/dice-arithmetics">Source Code</a>
+        <a href="https://buymybeard.itch.io/dice-arithmetics" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/dice-arithmetics" data-i18n="source-code"></a>
     </p>
 
     <hr>
@@ -156,13 +138,13 @@
     <h2 id="meat-juggler">Meat Juggler</h2>
     <img width="800px" src="img/meat-juggler-thumbnail.png">
     <p>
-        <b>Made in 13 days for <a href="https://itch.io/jam/gamedevjs-2022">Gamedev.js Jam 2022</a></b><br>
-        <b>Theme : Raw</b><br>
-        <b>Team size : 2</b>
+        <b><span data-i18n="made-in"></span> 13 <span data-i18n="days-for"></span> <a href="https://itch.io/jam/gamedevjs-2022">Gamedev.js Jam 2022</a></b><br>
+        <b><span data-i18n="theme"></span> : Raw</b><br>
+        <b><span data-i18n="team-size"></span> : 2</b>
     </p>
     <p>
-        <a href="https://juanlrodriguesz.itch.io/meat-juggler">Play in the browser</a> | 
-        <a href="https://github.com/BuyMyBeard/Meat-Juggler">Source Code</a>
+        <a href="https://juanlrodriguesz.itch.io/meat-juggler" data-i18n="play-in-browser"></a> | 
+        <a href="https://github.com/BuyMyBeard/Meat-Juggler" data-i18n="source-code"></a>
     </p>
     <div id="footer"></div>
 </body>

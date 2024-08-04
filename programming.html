@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="css/normalize.css" type="text/css"/>
     <link id="theme" rel="stylesheet" href="css/sakura.css" type="text/css"/>
     <link rel="stylesheet" href="css/styles.css" type="text/css"/>
-    <link rel="preload" as="fetch" href="./partial/navigation.html" crossorigin="anonymous">
-    <link rel="preload" as="fetch" href="./partial/footer.html" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script/builder.js" type="application/javascript"></script>
     <link id="codeTheme" rel="stylesheet" href="./highlight.js/styles/default.min.css">
@@ -143,6 +141,28 @@ fn parse_flag(flag_arg: String, next_arg : Option&lt;String>, command : &Command
     <p data-i18n="[html]parser-p2"></p>
     <p data-i18n="[html]parser-p3"></p>
     <p data-i18n="[html]parser-p4"></p>
-    <div id="footer"></div>
-</body>
-</html>
+    <h2 data-i18n="star-pattern-shader" id="star-pattern-shader"></h2>
+    <pre><code class="language-glsl">float starPattern(vec2 p)
+      {
+        float colSum = 0.;
+        for (int i = 0; i < starCount * 2; i += 1)
+        {
+          float delta = float(i) - (2. * fract(iTime * speed) - 1.);
+          float radius = 1. - delta / float(starCount * 2);
+          float star = 1. - smoothstep(-.008, -.001, star(p, radius, .6));
+          
+          colSum = mod(float(i), 2.) == 0. ? colSum + star: colSum - star;
+        }
+        float innerStarDelta = 2. * fract(iTime * speed) - 1.;
+        float innerStarRadius = innerStarDelta / float(starCount * 2);
+        if (innerStarRadius > 0.)
+        {
+          float innerStar = 1. - smoothstep(-.008, -.001, star(p, innerStarRadius, .6));
+          colSum += innerStar;
+        }
+        
+        return colSum;
+      }</code></pre>
+      <div id="footer"></div>
+    </body>
+    </html>

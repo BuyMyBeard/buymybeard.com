@@ -2,7 +2,7 @@
 const footer = fetch('partial/footer.html', {credentials: 'same-origin'}).then(response => response.text());
 const navigation = fetch('partial/navigation.html', {credentials: 'same-origin'}).then(response => response.text());
 
-function loadTranslations(lang) {
+async function loadTranslations(lang) {
   $.i18n().locale = lang;
   $.i18n().load({
       'en': './i18n/en.json',
@@ -32,47 +32,29 @@ $(document).ready(() => {
       loadTranslations(selectedLang);
       localStorage.setItem('lang', selectedLang);
     });
-  });
-});
 
-let theme;
-let codeTheme;
-let dark = false;
+    const themeElement = $("#theme");
+    const codeThemeElement = $("#codeTheme");
 
-function setTheme(style) {
-  theme.attr("href", style);
-  localStorage.setItem('theme', style);
-}
-
-function setCodeTheme(style) {
-  localStorage.setItem('codeTheme', style);
-  if (codeTheme != null) {
-    codeTheme.attr("href", style);
-  }
-}
-
-function toggleTheme() {
-  if (!dark) {
-    setTheme('css/sakura-dark.css');
-    setCodeTheme('./highlight.js/styles/dark.min.css')
-  }
-  else {
-    setTheme('css/sakura.css');
-    setCodeTheme('./highlight.js/styles/default.min.css');
-  }
-  dark = !dark;
-}
-
-$(document).ready(() => {
-  theme = $("#theme");
-  codeTheme = $("#codeTheme");
-  const localStorageTheme = localStorage.getItem('theme');
-  if (localStorageTheme) {
-    dark = localStorageTheme == 'css/sakura-dark.css';
+    const localStorageTheme = localStorage.getItem('theme') ?? 'light';
     setTheme(localStorageTheme);
-  }
-  const localStorageCodeTheme = localStorage.getItem('codeTheme');
-  if (localStorageCodeTheme) {
-    setCodeTheme(localStorageCodeTheme);
-  }
+    $('#theme-select').val(localStorageTheme);
+
+    $('#theme-select').change((event) => {
+      const selectedTheme = $(event.target).val();
+      setTheme(selectedTheme);
+      localStorage.setItem('theme', selectedTheme);
+    });
+
+    function setTheme(style) {
+      if (style == "dark") {
+        themeElement.attr('href', 'css/sakura-dark.css');
+        codeThemeElement?.attr('href', './highlight.js/styles/dark.min.css');
+      }
+      else {
+        themeElement.attr('href', 'css/sakura.css');
+        codeThemeElement?.attr('href', './highlight.js/styles/default.min.css');
+      }
+    }
+  });
 });
