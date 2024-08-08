@@ -20,98 +20,55 @@
     <h1 data-i18n="technical-art"></h1>
     <nav>
         <div class="center">
-            <a href="#neon-souls-potion">Potion shader</a> | 
-            <a href="#health-bar">Health bar shader</a> | 
-            <a href="#colorblind-filters">Colorblind correction filters</a> | 
-            <a href="#light-pillars">Light pillars</a> <br>
-            <a href="#water-shader">Stylized water with planar reflections</a> | 
-            <a href="#silhouette">Persona silhouette and toon shading</a> 
-            <a href="#rainbow-split">Color split effect</a> | 
-            <a href="#clouds">Dynamic clouds</a> | 
-            <a href="#star">Persona 5 star shader</a>
+            <a href="#neon-souls-potion" data-i18n="potion-shader"></a> | 
+            <a href="#health-bar" data-i18n="health-bar-shader"></a> | 
+            <a href="#colorblind-filters" data-i18n="colorblind-filters"></a><span data-i18n="[html]fr-exclusive-br"></span>
+            <a href="#light-pillars" data-i18n="light-pillars"></a><span data-i18n="[html]en-exclusive-br"></span>
+            <a href="#water-shader" data-i18n="water-shader"></a><span data-i18n="[html]fr-exclusive-br"></span>
+            <a href="#silhouette" data-i18n="silhouette-toon-shading"></a><span data-i18n="[html]en-exclusive-br"></span>
+            <a href="#rainbow-split" data-i18n="rainbow-split-effect"></a><span data-i18n="[html]fr-exclusive-br"></span>
+            <a href="#clouds" data-i18n="dynamic-clouds"></a> | 
+            <a href="#star" data-i18n="star-shader-effect"></a>
         </div>
     </nav>
     <hr>
-    <h2 id="neon-souls-potion">Potion shader</h2>
+    <h2 id="neon-souls-potion" data-i18n="potion-shader"></h2>
     <img width="800" src="img/potion.gif">
-    <p>
-        This effect was used in <a href="other-projects.html#neon-souls">Neon Souls</a>
-        to display the amount of potions left. The shader could easily be controlled to
-        change the color of the liquid to display the different potion upgrades, or the 
-        liquid level, as seen above.
-    </p>
-    <p>
-        The entire shader was created through Shader Graph with signed distance fields to
-        create the different shapes, and some creative noise manipulation for the bubbles.
-    </p>
+    <p data-i18n="[html]potion-shader-p1"></p>
+    <p data-i18n="[html]potion-shader-p2"></p>
     <hr>
-    <h2 id="health-bar">Health bar shader</h2>
+    <h2 id="health-bar" data-i18n="health-bar-shader"></h2>
     <img width="800" src="img/health-bar.gif">
-    <p>
-        This shader was also featured in <a href="other-projects.html#neon-souls">Neon Souls</a>
-        to display every ressource bar in the game. Above, you can see the use for the 
-        player health, stamina, and mana bars, but the shader was also used to display enemy and 
-        boss health.
-    </p>
+    <p data-i18n="[html]health-bar-shader-p1"></p>
     <hr>
-    <h2 id="colorblind-filters">Colorblind correction filters</h2>
+    <h2 id="colorblind-filters" data-i18n="colorblind-filters"></h2>
     <img width="800" src="img/colorblind-filter.jpg">
-    <p>
-        I valued accessibility for <a href="other-projects.html#neon-souls">Neon Souls</a>, so I
-        made a filter that can be adjusted in the menus to compensate for colorblindess. It can correct
-        protanopia, deuteranopia, and tritanopia by shifting the colors in post-process, and the filter
-        strength can be adjusted with a slider for those suffering from deuteranomaly, protanomaly and 
-        tritanomaly.
-    </p>
+    <p data-i18n="[html]colorblind-filters-p1"></p>
     <hr>
-    <h2 id="light-pillars">Light pillars</h2>
+    <h2 id="light-pillars" data-i18n="light-pillars"></h2>
     <img width="800" src="img/light-pillars.gif">
-    <p>
-        I thought it was important to indicate to the player in 
-        <a href="other-projects.html#spectra-hunt">Spectra Hunt</a> hints to the
-        whereabout of their objectives. Creating a cylinder that scales and intensifies bloom
-        with distance to the player was a pretty simple approach, and plays nicely into the
-        theme of the game.
-    </p>
+    <p data-i18n="[html]light-pillars-p1"></p>
     <hr>
-    <h2 id="water-shader">Stylized water with planar reflections</h2>
+    <h2 id="water-shader" data-i18n="water-shader"></h2>
     <video controls width="800" src="video/water-shader.mp4"></video>
-    <p>
-        I have been playing around with water shaders for a while, and I implemented one in
-        <a href="other-projects.html#spectra-hunt">Spectra Hunt</a>. I added the final touch by giving
-        it planar reflections with the help of <a href="https://github.com/Kink3d/kMirrors">kMirrors</a>.
-    </p>
+    <p data-i18n="[html]water-shader-p1"></p>
     <hr>
-    <h2 id="silhouette">Persona silhouette and toon shading</h2>
+    <h2 id="silhouette" data-i18n="silhouette-toon-shading"></h2>
     <img width="800" src="img/persona-silhouette.png">
-    <p>
-        This was the starting point of the <a href="#rainbow-split">color split effect</a>, and a recreation
-        of the silhouette shader seen in all persona games since Persona 5. The effect is done by using the 
-        power of the stencil buffer to always render Joker's model in front of the duplicate unlit model
-        which is actually at the same depth as the first model.
-    </p>
+    <p data-i18n="[html]silhouette-toon-shading-p1"></p>
     <hr>
-    <h2 id="rainbow-split">Color split effect</h2>
+    <h2 id="rainbow-split" data-i18n="rainbow-split-effect"></h2>
     <video controls width="800" src="video/color-split-effect.mp4"></video>
-    <p>
-        Lots of playing around with unity stencil buffer and render queue led to this
-        neat effect.
-    </p>
+    <p data-i18n="rainbow-split-effect-p1"></p>
     <hr>
     <h2 id="clouds">Dynamic Clouds</h2>
     <video controls width="800" src="video/dynamic-clouds.mp4"></video>
-    <p>
-        I experimented with VFX Graph and tried making clouds cast shadow, and the result
-        was actually pretty cool. I'd like to play around with giving the clouds a subsurface
-        light scattering shader now to make them more realistic.
-    </p>
+    <p data-i18n="[html]dynamic-clouds-p1"></p>
     <hr>
-    <h2 id="star">Persona 5 star shader</h2>
+    <h2 id="star" data-i18n="star-shader-effect"></h2>
     <img width="800" src="img/star-shader.gif">
     <p><a href="https://www.shadertoy.com/view/4cl3zf">Shadertoy</a></p>
-    <p>
-        I recreated the growing star from Persona 5, used in menus. This was the baseline to
-        create my <a href="other-projects.html#star-pattern">Star Pattern</a>.
+    <p data-i18n="[html]star-shader-effect-p1">
     </p>
     <div id="footer"></div>
 </body>
