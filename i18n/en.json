@@ -1,7 +1,7 @@
 {
   "@metadata": {
     "author": "BuyMyBeard",
-    "last-updated": "2024-08-04",
+    "last-updated": "2024-08-08",
     "locale": "en"
   },
   "light": "Light",
@@ -83,7 +83,7 @@
   "broadphase-title": "Physics Engine Broad Phase",
   "broadphase-p1": "For a bit of context, all physics engine implement a broad phase, to avoid checking collision for every single pair in a simulation.",
   "broadphase-p2": "In this case, I implemented the <a href=\"https://en.wikipedia.org/wiki/Sweep_and_prune\">Sweep and prune algorithm</a> for my simulation.",
-  "broadphase-p3": "The approach here is to use the axis-aligned bounding box of every shape and compare the x-axis boundaries. If two bodies overlap, the pair are saved in an array, and then returned at the end of the method body. This is done by sorting the bodies by the the left boundary of their bounding box, and then sweeping through to check for overlaps.",
+  "broadphase-p3": "The approach here is to use the <abbr title=\"axis-aligned bounding box\">AABB</abbr> of every shape and compare the x-axis boundaries. If two bodies overlap, the pair are saved in an array, and then returned at the end of the method body. This is done by sorting the bodies by the the left boundary of their bounding box, and then sweeping through to check for overlaps.",
   "broadphase-p4": "What makes this especially efficient, is that the array is most often almost sorted, since a physics step will almost never move a body much. <code>Array.prototype.sort()</code>, the method used here, varies its implementation depending on the browser, but most of the time, this is done with the <a href=\"https://en.wikipedia.org/wiki/Timsort\">Timsort algorithm</a>, which is well-suited for arrays that are already partially sorted.",
   "broadphase-p5": "That is why the body array is mutated as a side effect within the method body, so that the next step can reuse the sorted array from the previous step to avoid unnecessary work.",
   "parser-title": "Command Line Parser",
