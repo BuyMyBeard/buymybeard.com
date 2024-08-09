@@ -142,26 +142,26 @@ fn parse_flag(flag_arg: String, next_arg : Option&lt;String>, command : &Command
     <p data-i18n="[html]parser-p4"></p>
     <h2 data-i18n="star-pattern-shader" id="star-pattern-shader"></h2>
     <pre><code class="language-glsl">float starPattern(vec2 p)
-      {
-        float colSum = 0.;
-        for (int i = 0; i < starCount * 2; i += 1)
-        {
-          float delta = float(i) - (2. * fract(iTime * speed) - 1.);
-          float radius = 1. - delta / float(starCount * 2);
-          float star = 1. - smoothstep(-.008, -.001, star(p, radius, .6));
-          
-          colSum = mod(float(i), 2.) == 0. ? colSum + star: colSum - star;
-        }
-        float innerStarDelta = 2. * fract(iTime * speed) - 1.;
-        float innerStarRadius = innerStarDelta / float(starCount * 2);
-        if (innerStarRadius > 0.)
-        {
-          float innerStar = 1. - smoothstep(-.008, -.001, star(p, innerStarRadius, .6));
-          colSum += innerStar;
-        }
-        
-        return colSum;
-      }</code></pre>
+{
+  float colSum = 0.;
+  for (int i = 0; i < starCount * 2; i += 1)
+  {
+    float delta = float(i) - (2. * fract(iTime * speed) - 1.);
+    float radius = 1. - delta / float(starCount * 2);
+    float star = 1. - smoothstep(-.008, -.001, star(p, radius, .6));
+    
+    colSum = mod(float(i), 2.) == 0. ? colSum + star: colSum - star;
+  }
+  float innerStarDelta = 2. * fract(iTime * speed) - 1.;
+  float innerStarRadius = innerStarDelta / float(starCount * 2);
+  if (innerStarRadius > 0.)
+  {
+    float innerStar = 1. - smoothstep(-.008, -.001, star(p, innerStarRadius, .6));
+    colSum += innerStar;
+  }
+  
+  return colSum;
+}</code></pre>
       <div id="footer"></div>
     </body>
     </html>
